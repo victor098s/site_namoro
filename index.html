@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Victor & Ana Clara — Nosso Cantinho</title>
+
+  <meta property="og:title" content="Victor & Ana Clara — Nosso Cantinho">
+  <meta property="og:description" content="Um site para guardar nossas memórias — fotos, música e o tempo juntos.">
+  <meta property="og:type" content="website">
+
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="86" font-size="90">❤</text></svg>'>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="title">
+        <h1 id="coupleNames">Victor & Ana Clara</h1>
+        <p id="sinceText" class="since">Desde <strong id="startDateText">28 de setembro de 2024</strong> 💕</p>
+      </div>
+      <div class="controls">
+        <button id="ytPlayBtn" class="btn">▶︎ Tocar música</button>
+        <button id="addMemoryBtn" class="btn ghost">➕ Adicionar memória</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card panel timer-panel" aria-live="polite">
+        <h2 class="panel-title">Há quanto tempo estamos juntos</h2>
+        <div class="timer" id="timer">
+          <div><span id="years">0</span><small>anos</small></div>
+          <div><span id="days">0</span><small>dias</small></div>
+          <div><span id="hours">0</span><small>horas</small></div>
+          <div><span id="minutes">0</span><small>min</small></div>
+          <div><span id="seconds">0</span><small>seg</small></div>
+        </div>
+      </section>
+
+      <section class="panel gallery-panel">
+        <h2 class="panel-title">Nossas Memórias</h2>
+        <div class="gallery" id="gallery"></div>
+        <div style="text-align:center;margin-top:14px">
+          <button class="btn" id="loadMore">Ver mais memórias</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+      <div class="lightbox-inner" role="dialog" aria-modal="true">
+        <button class="lb-close" id="lbClose">✕</button>
+        <img id="lbImage" src="" alt="Foto ampliada">
+        <p id="lbCaption" class="muted"></p>
+        <div style="text-align:right"><button class="btn ghost" id="downloadBtn">Baixar</button></div>
+      </div>
+    </div>
+
+    <div class="hearts" aria-hidden="true">
+      <div class="heart h1">❤</div>
+      <div class="heart h2">❤</div>
+      <div class="heart h3">❤</div>
+      <div class="heart h4">❤</div>
+      <div class="heart h5">❤</div>
+    </div>
+
+    <!-- YouTube player (invisível) -->
+    <div id="player" style="display:none"></div>
+
+    <script src="script.js"></script>
+  </div>
+</body>
+</html>

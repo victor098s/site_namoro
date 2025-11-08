@@ -1,0 +1,82 @@
+/* style.css - romântico, moderno e responsivo */
+
+:root{
+  --bg: #fff1f3;
+  --card: #ffffff;
+  --accent: #ff5c8a;
+  --accent-2: #ff9ab3;
+  --text: #2b2b2b;
+  --muted: #7a6f75;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(203,50,93,0.12);
+  --transition: 300ms cubic-bezier(.2,.9,.3,1);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--text);background:linear-gradient(180deg,#fff1f3 0%, #fff 70%);-webkit-font-smoothing:antialiased}
+.page{max-width:1100px;margin:28px auto;padding:20px}
+
+/* Header */
+.site-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.title h1{font-family:'Dancing Script',cursive;font-size:34px;margin:0;color:var(--accent)}
+.title .since{margin:6px 0 0 0;color:var(--muted)}
+.controls{display:flex;gap:10px;align-items:center}
+
+/* Buttons */
+.btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#fff;padding:10px 14px;border-radius:12px;font-weight:600;cursor:pointer;transition:transform var(--transition)}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.06);color:var(--text)}
+
+/* Main layout */
+.main{display:grid;grid-template-columns:320px 1fr;gap:18px;align-items:start}
+.panel{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);transition:transform var(--transition)}
+.panel-title{margin:0 0 12px 0;font-weight:600;color:var(--text)}
+
+/* Timer */
+.timer{display:flex;gap:12px;justify-content:space-between;align-items:center}
+.timer div{background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,255,255,0.7));padding:10px;border-radius:12px;text-align:center;min-width:58px}
+.timer span{display:block;font-size:20px;font-weight:700;color:var(--accent)}
+.timer small{display:block;font-size:11px;color:var(--muted)}
+
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px}
+.card{position:relative;border-radius:12px;overflow:hidden;cursor:pointer;background:linear-gradient(180deg,#fff,#fffefc);box-shadow:0 8px 24px rgba(0,0,0,0.06);transition:transform var(--transition),box-shadow var(--transition)}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 34px rgba(203,50,93,0.12)}
+.card .photo{width:100%;height:160px;background-size:cover;background-position:center;display:block}
+.card .meta{padding:10px}
+.card .meta h3{margin:0;font-size:16px}
+.card .meta p{margin:6px 0 0 0;font-size:13px;color:var(--muted)}
+.card .actions{margin-top:10px;display:flex;gap:8px;justify-content:flex-end}
+.card .back{position:absolute;inset:0;padding:14px;background:linear-gradient(180deg,rgba(255,235,240,.95),rgba(255,255,255,.96));transform:translateY(100%);transition:transform var(--transition)}
+.card:hover .back{transform:translateY(0)}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);visibility:hidden;opacity:0;transition:opacity 200ms}
+.lightbox[aria-hidden="false"]{visibility:visible;opacity:1}
+.lightbox-inner{background:#fff;padding:18px;border-radius:12px;max-width:900px;width:92%;position:relative}
+.lb-close{position:absolute;right:12px;top:8px;border:none;background:transparent;font-size:20px;cursor:pointer}
+.lightbox img{max-width:100%;display:block;border-radius:8px}
+.muted{color:var(--muted);font-size:13px;margin-top:8px}
+
+/* Hearts floating decorative */
+.hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;mix-blend-mode:screen}
+.heart{position:absolute;font-size:32px;opacity:.12;transform-origin:center;animation:float 8s linear infinite}
+.h1{left:6%;top:10%;animation-duration:9s;opacity:.08}
+.h2{left:80%;top:20%;animation-duration:10s;opacity:.07}
+.h3{left:40%;top:70%;animation-duration:11s;opacity:.06}
+.h4{left:90%;top:70%;animation-duration:12s;opacity:.05}
+.h5{left:10%;top:40%;animation-duration:14s;opacity:.06}
+
+@keyframes float{
+  0%{transform:translateY(0) scale(1) rotate(0deg)}
+  50%{transform:translateY(-40px) scale(1.08) rotate(8deg)}
+  100%{transform:translateY(0) scale(1) rotate(0deg)}
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .main{grid-template-columns:1fr;gap:12px}
+  .timer{flex-wrap:wrap}
+  .timer div{flex:1}
+  .controls{margin-top:8px}
+}
